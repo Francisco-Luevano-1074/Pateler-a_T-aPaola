@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelería Paola - Delicias horneadas con amor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPgo8cmVjdCB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjZmZmZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMNiA2IiBzdHJva2U9IiNmNWY1ZjUiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8cGF0aCBkPSJNNiAwTDAgNiIgc3Ryb2tlPSIjZjVmNWY1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+');
+        }
+        
+        .cake-card:hover .cake-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .cake-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-amber-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-birthday-cake text-3xl text-amber-500 mr-2"></i>
+                <h1 class="font-dancing text-3xl font-bold text-amber-600">Pastelería Paola</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-amber-800 hover:text-amber-500 font-medium transition">Inicio</a>
+                <a href="#productos" class="text-amber-800 hover:text-amber-500 font-medium transition">Productos</a>
+                <a href="#sobre-nosotros" class="text-amber-800 hover:text-amber-500 font-medium transition">Sobre Nosotros</a>
+                <a href="#testimonios" class="text-amber-800 hover:text-amber-500 font-medium transition">Testimonios</a>
+                <a href="#contacto" class="text-amber-800 hover:text-amber-500 font-medium transition">Contacto</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-amber-800 hover:text-amber-500">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                </a>
+                <button class="md:hidden text-amber-800" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white py-4 px-4 shadow-lg" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#inicio" class="text-amber-800 hover:text-amber-500 font-medium transition">Inicio</a>
+                <a href="#productos" class="text-amber-800 hover:text-amber-500 font-medium transition">Productos</a>
+                <a href="#sobre-nosotros" class="text-amber-800 hover:text-amber-500 font-medium transition">Sobre Nosotros</a>
+                <a href="#testimonios" class="text-amber-800 hover:text-amber-500 font-medium transition">Testimonios</a>
+                <a href="#contacto" class="text-amber-800 hover:text-amber-500 font-medium transition">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-pattern py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="font-dancing text-4xl md:text-6xl font-bold text-amber-700 mb-4">Delicias horneadas con amor</h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">Desde 2010, endulzando los momentos especiales de nuestros clientes con los más exquisitos postres artesanales.</p>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                    <a href="#productos" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full text-center transition duration-300 shadow-lg">
+                        Ver Productos
+                    </a>
+                    <a href="#contacto" class="border-2 border-amber-600 text-amber-700 hover:bg-amber-50 font-bold py-3 px-6 rounded-full text-center transition duration-300 shadow-lg">
+                        Haz tu pedido
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     alt="Pastel de chocolate" 
+                     class="w-full max-w-md mx-auto rounded-lg shadow-2xl floating">
+                <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                    <div class="flex items-center">
+                        <div class="bg-amber-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-award text-amber-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-amber-800">Premio a la mejor</p>
+                            <p class="text-sm text-gray-600">Pastelería 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="productos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-dancing text-4xl font-bold text-amber-700 mb-4">Nuestros Productos</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Descubre nuestra selección de pasteles, cupcakes y postres hechos con los ingredientes más frescos y de la más alta calidad.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-amber-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cake-card relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Pastel de chocolate" 
+                             class="w-full h-64 object-cover">
+                        <div class="cake-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                                Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-800">Pastel de Chocolate</h3>
+                            <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full">$25.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Delicioso pastel de chocolate con relleno de ganache y decorado con fresas frescas.</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(48)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-amber-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cake-card relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1557924923-d69d9e0e1603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Cupcakes de vainilla" 
+                             class="w-full h-64 object-cover">
+                        <div class="cake-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                                Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-800">Cupcakes de Vainilla</h3>
+                            <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full">$18.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Docena de cupcakes esponjosos de vainilla con frosting de crema de mantequilla y decoraciones coloridas.</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 ml-2">(36)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-amber-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cake-card relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1627834377411-8da5f4f09de8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Tarta de frutas" 
+                             class="w-full h-64 object-cover">
+                        <div class="cake-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                                Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-800">Tarta de Frutas</h3>
+                            <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full">$32.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Exquisita tarta con base de galleta, crema pastelera y una variedad de frutas frescas de temporada.</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">(62)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-amber-600 text-amber-700 hover:bg-amber-50 font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver todos los productos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="sobre-nosotros" class="py-16 bg-amber-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Paola, la pastelera" 
+                         class="w-full rounded-lg shadow-lg">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="font-dancing text-4xl font-bold text-amber-800 mb-6">Nuestra Historia</h2>
+                    <p class="text-lg text-gray-700 mb-6">Pastelería Paola nació en 2010 como un pequeño sueño de su fundadora, Paola Martínez, quien desde niña demostró una pasión innata por la repostería.</p>
+                    <p class="text-lg text-gray-700 mb-6">Lo que comenzó como un modesto negocio familiar, hoy se ha convertido en una de las pastelerías más reconocidas de la ciudad, gracias a nuestra dedicación, calidad y el amor que ponemos en cada producto.</p>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-heart text-amber-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-amber-800 mb-2">Nuestra Filosofía</h3>
+                                <p class="text-gray-700">Creemos en la repostería artesanal, utilizando ingredientes naturales de primera calidad y técnicas tradicionales que realzan el auténtico sabor de cada postre.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <i class="fas fa-leaf text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-amber-800">Ingredientes Naturales</h4>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <i class="fas fa-hand-holding-heart text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-amber-800">Hecho con Amor</h4>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <i class="fas fa-bread-slice text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-amber-800">Artesanal</h4>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                            <i class="fas fa-star text-amber-600 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-amber-800">Calidad Premium</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-dancing text-4xl font-bold text-amber-700 mb-4">Lo que dicen nuestros clientes</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nuestros clientes son nuestra mejor carta de presentación. Descubre por qué nos eligen una y otra vez.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-amber-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                             alt="María González" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-800">María González</h4>
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"El pastel de chocolate de Paola fue el centro de atención en el cumpleaños de mi hija. Todos quedaron encantados con su sabor y textura. ¡Definitivamente volveré a pedir!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-amber-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" 
+                             alt="Carlos Mendoza" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-800">Carlos Mendoza</h4>
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Pedí los cupcakes para mi oficina y fueron un éxito total. La combinación de sabores es increíble y la presentación impecable. Muy profesional el servicio."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-amber-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                             alt="Laura Jiménez" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-800">Laura Jiménez</h4>
+                            <div class="flex text-amber-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"La tarta de frutas que encargué para mi aniversario de bodas superó todas mis expectativas. Fresca, deliciosa y hermosa. Paola captó exactamente lo que quería."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-amber-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-amber-600 text-white p-10">
+                        <h2 class="font-dancing text-4xl font-bold mb-6">Contáctanos</h2>
+                        <p class="mb-8">Estamos aquí para ayudarte con tus pedidos especiales y responder cualquier pregunta que tengas sobre nuestros productos.</p>
+                        
+                        <div class="mb-6 flex items-start">
+                            <i class="fas fa-map-marker-alt text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Dirección</h4>
+                                <p>Calle Dulce 123, Colonia Repostería, Ciudad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <i class="fas fa-phone-alt text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Teléfono</h4>
+                                <p>+52 55 1234 5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <i class="fas fa-envelope text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p>hola@pasteleriapaola.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4 mt-8">
+                            <a href="#" class="bg-white text-amber-600 hover:bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-white text-amber-600 hover:bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-white text-amber-600 hover:bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-10">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-6">Haz tu pedido</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="name">Nombre</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="phone">Teléfono</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="message">Mensaje</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-amber-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-dancing text-3xl md:text-4xl font-bold mb-4">Suscríbete a nuestro boletín</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Recibe nuestras promociones especiales, nuevas recetas y consejos de repostería directamente en tu correo.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Tu correo electrónico" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button class="bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-r-lg font-bold transition duration-300">
+                    Suscribirse
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-birthday-cake text-2xl text-amber-300 mr-2"></i>
+                        <h3 class="font-dancing text-2xl font-bold text-amber-300">Pastelería Paola</h3>
+                    </div>
+                    <p class="text-amber-100">Endulzando tus momentos especiales desde 2010 con los más deliciosos postres artesanales.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-amber-300">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-amber-100 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#productos" class="text-amber-100 hover:text-white transition">Productos</a></li>
+                        <li><a href="#sobre-nosotros" class="text-amber-100 hover:text-white transition">Sobre Nosotros</a></li>
+                        <li><a href="#testimonios" class="text-amber-100 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="#contacto" class="text-amber-100 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-amber-300">Horario</h4>
+                    <ul class="space-y-2 text-amber-100">
+                        <li class="flex justify-between">
+                            <span>Lunes - Viernes</span>
+                            <span>9:00 - 19:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado</span>
+                            <span>9:00 - 15:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span>Cerrado</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-amber-300">Métodos de Pago</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="bg-white p-2 rounded">
+                            <i class="fab fa-cc-visa text-2xl text-blue-800"></i>
+                        </div>
+                        <div class="bg-white p-2 rounded">
+                            <i class="fab fa-cc-mastercard text-2xl text-red-800"></i>
+                        </div>
+                        <div class="bg-white p-2 rounded">
+                            <i class="fab fa-cc-amex text-2xl text-blue-600"></i>
+                        </div>
+                        <div class="bg-white p-2 rounded">
+                            <i class="fas fa-money-bill-wave text-2xl text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center text-amber-100">
+                <p>&copy; 2023 Pastelería Paola. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add animation when scrolling
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.cake-card, .floating');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
